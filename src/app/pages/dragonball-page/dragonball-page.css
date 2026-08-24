@@ -1,0 +1,28 @@
+body{
+    background:#f4f7fa;
+}
+
+.navbar{
+    background:linear-gradient(
+      90deg,
+      #ff7b00,
+      #ffb300
+    ) !important;
+}
+
+.card{
+    transition:.3s ease;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.btn-primary{
+    background:#0066ff;
+    border:none;
+}
+
+.badge{
+    float:right;
+}

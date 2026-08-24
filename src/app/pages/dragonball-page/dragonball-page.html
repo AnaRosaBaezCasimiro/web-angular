@@ -1,43 +1,101 @@
-<h1>Página de dragonall</h1>
-<hr />
+<div class="container py-5">
 
-<section class="row">
-    <div class="col-12 col-sm-6">
-        <input type="text" class="form-control" placeholder="Nombre personaje" [value]="name()"
-            (input)="name.set(txtName.value)" #txtName>
+    <!-- Header -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="d-flex align-items-center gap-3">
+                <div>
+                    <h1 class="fw-bold mb-0">Guerreros Z</h1>
+                </div>
+            </div>
 
-        <h3>Power: {{ power() }}</h3>
-        <input 
-        type="number" 
-        class="form-control mt-2" 
-        placeholder="Poder del personaje"
-        [value]="power()"
-        (input)="power.set(+txtPower.value)"
-        #txtPower
-        >
-        <!-- Se agrego una referencia local con el numeral -->
-
-        <button class="mt-2 btn btn-primary" (click)="addCharacter()">Agregar</button>
+            <hr>
+        </div>
     </div>
 
-    <div class="col-12 col-sm-6">
-        <h3>Listado</h3>
-        <ul>
-            @for(character of characters(); track character.id; let idx = $index){
-            @if(character.power > 500 ) {
-            <li>
-                <span>{{ idx + 1 }} - {{character.name}}</span>
-                <strong [class.text-danger]="character.power > 9000"> ({{ character.power}})</strong>
-            </li>
-            } @else {
-            <li>
-                <strong>
-                    Aqui no vale la pena ver nada
-                </strong>
-            </li>
-            }
+    <div class="row g-4">
 
-            }
-        </ul>
+        <!-- Formulario -->
+        <div class="col-lg-4">
+
+            <div class="card border-0 shadow-lg rounded-4 h-100">
+
+                <div class="card-body p-4">
+
+                    <h3 class="card-title text-warning fw-bold mb-4">
+                        ⚡ Nuevo Guerrero
+                    </h3>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">
+                            Guerrero z
+                        </label>
+                        <input type="text" class="form-control form-control-lg" placeholder="Nombre personaje"
+                            [value]="name()" (input)="name.set(txtName.value)" #txtName>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">
+                            Poder
+                        </label>
+
+                        <input type="number" class="form-control form-control-lg mt-2" placeholder="Poder del personaje"
+                            [value]="power()" (input)="power.set(+txtPower.value)" #txtPower>
+
+                    </div>
+
+                    <button class="btn btn-primary btn-lg w-100 mb-4" (click)="addCharacter()">
+
+                        +
+                        Agregar Guerrero
+
+                    </button>
+
+                    <div class="text-center">
+                        <img src="imagenes/dragon.jpg" alt="Gohan" class="img-fluid gohan-img" />
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Listado -->
+        <div class="col-lg-8">
+
+            <div class="card border-0 shadow-lg rounded-4">
+
+                <div class="card-body p-4">
+
+                    <h3 class="text-warning fw-bold mb-4">
+                        📋 Guerreros Registrados
+                    </h3>
+
+                    <ul>
+                        @for(character of characters(); track character.id; let idx = $index){
+                        @if(character.power > 500 ) {
+                        <li>
+                            <span>{{ idx + 1 }} - {{character.name}}</span>
+                            <strong [class.text-danger]="character.power > 9000"> ({{ character.power}})</strong>
+                        </li>
+                        } @else {
+                        <li>
+                            <strong>
+                                Aqui no vale la pena ver nada
+                            </strong>
+                        </li>
+                        }
+
+                        }
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
-</section>
+
+</div>
